@@ -1,0 +1,7 @@
+@media print {
+  body { background: white; }
+  .app-header .button, .filter-panel, .pagination { display: none !important; }
+  .section-card, .metric-card, .logs-table-wrapper { box-shadow: none; break-inside: avoid; }
+  .logs-table-wrapper { overflow: visible; }
+  .logs-table { min-width: 0; font-size: 9pt; }
+}

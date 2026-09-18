@@ -1,0 +1,247 @@
+/*
+ * =========================================================
+ * LARGE PHONE / TABLET
+ * 480px – 1023px
+ *
+ * Shared dashboard-level responsiveness only.
+ *
+ * Component-specific responsiveness belongs in:
+ * - filters.css
+ * - logs-table.css
+ * =========================================================
+ */
+
+@media (min-width: 30rem) and (max-width: 63.99rem) {
+  .metric-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .quality-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /*
+   * There are five quality cards.
+   * The final item spans both columns so the final row
+   * remains visually balanced.
+   */
+  .quality-grid > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
+
+/*
+ * =========================================================
+ * TABLET AND BELOW
+ * <= 1023px
+ * =========================================================
+ */
+
+@media (max-width: 63.99rem) {
+  /*
+   * Stack the header on tablets and phones.
+   * This prevents the upload action from clipping.
+   */
+  .app-header__inner {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .app-header__identity {
+    align-items: flex-start;
+
+    width: 100%;
+    min-width: 0;
+  }
+
+  .app-header__copy {
+    flex: 1 1 auto;
+
+    width: 100%;
+    min-width: 0;
+  }
+
+  .dataset-meta {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .dataset-meta__filename {
+    max-width: 100%;
+  }
+
+  .app-header__inner > .button {
+    width: 100%;
+  }
+
+  /*
+   * Service statistics become compact record cards
+   * instead of requiring tablet horizontal scrolling.
+   */
+  .service-row--header {
+    display: none;
+  }
+
+  .service-row {
+    min-width: 0;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: var(--space-2) var(--space-4);
+
+    padding-block: var(--space-4);
+  }
+
+  .service-row__name {
+    grid-column: 1 / -1;
+
+    padding-bottom: var(--space-2);
+
+    border-bottom: 1px dashed var(--border-subtle);
+  }
+
+  .service-row__metric {
+    min-width: 0;
+  }
+
+  .service-row__metric::before {
+    display: block;
+
+    margin-bottom: 0.1rem;
+
+    content: attr(data-label);
+
+    color: var(--text-muted);
+
+    font-size: var(--text-xs);
+  }
+}
+
+/*
+ * =========================================================
+ * PHONE
+ * <= 767px
+ * =========================================================
+ */
+
+@media (max-width: 47.99rem) {
+  .section-card__header,
+  .section-card__body {
+    padding-inline: var(--space-4);
+  }
+
+  .subsection-heading {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: var(--space-1);
+  }
+
+  input,
+  select {
+    font-size: 1rem;
+  }
+}
+
+/*
+ * =========================================================
+ * SMALL PHONE
+ * <= 560px
+ * =========================================================
+ */
+
+@media (max-width: 35rem) {
+  .button--responsive-full {
+    width: 100%;
+  }
+
+  .selected-file {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .selected-file .button {
+    margin-left: auto;
+  }
+
+  .upload-dropzone {
+    min-height: 13rem;
+
+    padding: var(--space-5);
+  }
+}
+
+/*
+ * =========================================================
+ * VERY SMALL / NORMAL MOBILE
+ * < 480px
+ * =========================================================
+ */
+
+@media (max-width: 29.99rem) {
+  .metric-grid,
+  .quality-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quality-grid > :last-child:nth-child(odd) {
+    grid-column: auto;
+  }
+
+  .service-row {
+    grid-template-columns: 1fr;
+  }
+
+  .service-row__metric {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: var(--space-4);
+  }
+
+  .service-row__metric::before {
+    margin: 0;
+  }
+
+  .brand-mark {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+}
+
+/*
+ * =========================================================
+ * LAPTOP / DESKTOP
+ * >= 1024px
+ * =========================================================
+ */
+
+@media (min-width: 64rem) {
+  .metric-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .quality-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+/*
+ * =========================================================
+ * ACCESSIBILITY
+ * =========================================================
+ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+  }
+}

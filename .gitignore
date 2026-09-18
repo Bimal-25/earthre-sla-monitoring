@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+web/node_modules/
+
+# Build output
+dist/
+web/dist/
+
+# TypeScript incremental builds
+*.tsbuildinfo
+
+# Local environment
+.env
+web/.env
+
+# Logs
+*.log
+
+# Firebase local state
+.firebase/
+
+# Test coverage
+coverage/
+web/coverage/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+# Phase 4 local deployment state/config
+/deploy/phase4.config.ps1
+/deploy/.phase4-state.json
+/deploy/.phase4-smoke.json
+/deploy/.runtime-env.yaml

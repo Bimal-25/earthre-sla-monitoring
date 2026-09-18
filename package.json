@@ -1,0 +1,38 @@
+{
+  "name": "@earthre/sla-monitoring-api",
+  "version": "0.2.0",
+  "private": true,
+  "description": "EarthRe SLA Monitoring Dashboard: correctness core, Firestore/API, responsive React frontend, and Google Cloud/Firebase deployment tooling.",
+  "main": "server/index.cjs",
+  "types": "dist/index.d.ts",
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\"",
+    "build": "npm run clean && tsc -p tsconfig.json",
+    "gcp-build": "npm run build",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test tests/*.test.cjs",
+    "analyze": "npm run build && node scripts/analyze-csv.cjs",
+    "start": "functions-framework --target=api --port=8080",
+    "serve": "npm run build && npm run start",
+    "check": "npm run typecheck && npm test",
+    "web:dev": "npm --prefix web run dev",
+    "web:build": "npm --prefix web run build",
+    "web:test": "npm --prefix web run test",
+    "web:check": "npm --prefix web run check",
+    "check:all": "npm run check && npm --prefix web run check",
+    "package:audit": "node scripts/audit-package.cjs",
+    "phase4:preflight": "powershell -NoProfile -ExecutionPolicy Bypass -File deploy/00-preflight.ps1",
+    "phase4:smoke": "powershell -NoProfile -ExecutionPolicy Bypass -File deploy/05-smoke-test.ps1"
+  },
+  "dependencies": {
+    "@google-cloud/firestore": "^7.11.0",
+    "@google-cloud/functions-framework": "^3.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "5.8.3"
+  }
+}

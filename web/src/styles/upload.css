@@ -1,0 +1,73 @@
+.upload-page {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding-block: var(--space-8);
+}
+
+.upload-card {
+  display: grid;
+  gap: var(--space-5);
+  width: min(100%, 46rem);
+  padding: clamp(1.25rem, 4vw, 2.25rem);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  background: var(--surface-card);
+  box-shadow: var(--shadow-md);
+}
+
+.upload-card__intro { display: grid; gap: var(--space-1); }
+
+.upload-dropzone {
+  display: grid;
+  place-items: center;
+  gap: var(--space-2);
+  min-height: 15rem;
+  padding: var(--space-8);
+  border: 2px dashed var(--border-strong);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  color: var(--text-secondary);
+  background: var(--surface-muted);
+  transition: border-color var(--duration-fast), background var(--duration-fast), color var(--duration-fast);
+}
+.upload-dropzone:hover,
+.upload-dropzone:focus-visible { border-color: var(--color-primary-500); color: var(--text-primary); }
+.upload-dropzone[data-drag-active="true"] { border-color: var(--color-primary-600); background: var(--color-primary-50); }
+.upload-dropzone__icon {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: var(--space-2);
+  border-radius: 50%;
+  color: var(--color-primary-700);
+  background: var(--color-primary-100);
+}
+.upload-dropzone__icon svg { width: 1.5rem; height: 1.5rem; }
+.upload-dropzone strong { color: var(--text-primary); font-size: var(--text-lg); }
+.upload-dropzone__help { margin-top: var(--space-1); color: var(--text-muted); font-size: var(--text-sm); }
+
+.selected-file {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 0;
+  padding: var(--space-3);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+.selected-file__icon { flex: 0 0 auto; width: 1.4rem; color: var(--color-primary-700); }
+.selected-file__details { display: grid; flex: 1 1 auto; min-width: 0; }
+.selected-file__details span { color: var(--text-muted); font-size: var(--text-sm); }
+.upload-actions { display: flex; justify-content: flex-end; }
+
+.schema-note {
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  background: var(--surface-muted);
+  font-size: var(--text-sm);
+  line-height: 1.75;
+}
+.schema-note strong { display: block; margin-bottom: var(--space-1); color: var(--text-primary); }

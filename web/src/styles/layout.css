@@ -1,0 +1,47 @@
+.page-container {
+  width: 100%;
+  max-width: calc(var(--page-max-width) + (var(--page-gutter) * 2));
+
+  margin-inline: auto;
+  padding-inline: var(--page-gutter);
+}
+
+.dashboard {
+  display: grid;
+  gap: var(--space-6);
+
+  padding-top: var(--space-6);
+
+  padding-bottom: max(var(--space-12), env(safe-area-inset-bottom));
+}
+
+.bootstrap-state {
+  display: grid;
+  place-items: center;
+
+  min-height: 100vh;
+}
+
+.restore-error {
+  padding-top: var(--space-6);
+}
+
+@media (min-width: 64rem) {
+  :root {
+    --page-gutter: 1.5rem;
+  }
+
+  .dashboard {
+    gap: var(--space-8);
+
+    padding-top: var(--space-8);
+
+    padding-bottom: max(var(--space-12), env(safe-area-inset-bottom));
+  }
+}
+
+@media (min-width: 90rem) {
+  :root {
+    --page-gutter: 2rem;
+  }
+}

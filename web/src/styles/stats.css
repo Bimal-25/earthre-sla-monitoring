@@ -1,0 +1,220 @@
+.stats-section {
+  container-type: inline-size;
+}
+
+.stats-content {
+  display: grid;
+  gap: var(--space-6);
+}
+
+/*
+ * Mobile-first:
+ * one KPI per row.
+ *
+ * responsive.css deliberately changes this to:
+ * - 2 columns for large phones / tablets
+ * - 4 columns for desktop
+ *
+ * This prevents the visually unbalanced 3 + 1 layout.
+ */
+.metric-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+.metric-card {
+  min-width: 0;
+
+  padding: var(--space-5);
+
+  border: 1px solid var(--border-subtle);
+  border-left: 0.25rem solid var(--border-strong);
+  border-radius: var(--radius-lg);
+
+  background: var(--surface-card);
+  box-shadow: var(--shadow-sm);
+}
+
+.metric-card--healthy {
+  border-left-color: var(--color-success-600);
+}
+
+.metric-card--warning {
+  border-left-color: var(--color-warning-600);
+}
+
+.metric-card--critical {
+  border-left-color: var(--color-danger-600);
+}
+
+.metric-card--info {
+  border-left-color: var(--color-info-600);
+}
+
+.metric-card__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.metric-card__label {
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  font-weight: 650;
+}
+
+.metric-card__icon {
+  display: grid;
+  place-items: center;
+
+  width: 2rem;
+  height: 2rem;
+
+  border-radius: 50%;
+
+  color: var(--text-secondary);
+  background: var(--surface-muted);
+}
+
+.metric-card__icon svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.metric-card__value {
+  margin-top: var(--space-4);
+
+  font-size: clamp(1.55rem, 3vw, 2.2rem);
+  font-weight: 750;
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+
+.metric-card__meta {
+  margin-top: var(--space-2);
+
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+}
+
+/*
+ * Data-quality grid is also mobile-first.
+ * responsive.css controls tablet/desktop column counts.
+ */
+.quality-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+.quality-item {
+  display: grid;
+  gap: 0.15rem;
+
+  min-width: 0;
+
+  padding: var(--space-3);
+
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+
+  background: var(--surface-card);
+}
+
+.quality-item__count {
+  font-size: var(--text-xl);
+  font-weight: 750;
+}
+
+.quality-item__label {
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+}
+
+.quality-item--danger {
+  border-left: 3px solid var(--color-danger-600);
+}
+
+.quality-item--warning {
+  border-left: 3px solid var(--color-warning-600);
+}
+
+.quality-item--info {
+  border-left: 3px solid var(--color-info-600);
+}
+
+.empty-copy {
+  margin: 0;
+
+  color: var(--text-muted);
+}
+
+/*
+ * Desktop service-table presentation.
+ *
+ * Tablets <= 1023px are transformed into responsive
+ * service cards by responsive.css.
+ */
+.service-stats {
+  width: 100%;
+  overflow-x: auto;
+
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+}
+
+.service-row {
+  display: grid;
+
+  min-width: 58rem;
+
+  grid-template-columns:
+    minmax(11rem, 1.5fr)
+    repeat(5, minmax(6.5rem, 1fr));
+
+  align-items: center;
+  gap: var(--space-3);
+
+  padding: var(--space-3) var(--space-4);
+
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.service-row:last-child {
+  border-bottom: 0;
+}
+
+.service-row--header {
+  color: var(--text-secondary);
+  background: var(--surface-muted);
+
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.service-row__name {
+  display: grid;
+
+  min-width: 0;
+}
+
+.service-row__name span {
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+}
+
+.service-row__metric {
+  min-width: 0;
+
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+}
+
+.service-row__metric > span:not(.badge) {
+  color: var(--text-primary);
+  font-weight: 650;
+}
