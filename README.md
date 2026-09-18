@@ -1,4 +1,4 @@
-# EarthRe SLA Monitoring Dashboard — Phase 4 Deployment Package
+# EarthRe SLA Monitoring Dashboard â€” Phase 4 Deployment Package
 
 A correctness-first full-stack implementation of the EarthRe SLA take-home assignment.
 
@@ -7,11 +7,17 @@ The project accepts a monitoring CSV, sends it through a real stateless serverle
 <!-- PHASE4_LIVE_START -->
 ## Live deployment
 
-- **GitHub repository:** PENDING
-- **Live application:** PENDING
-- **API base URL:** PENDING
-- **API health:** PENDING
-- **Last verified live (UTC):** PENDING
+- **GitHub repository:** https://github.com/Bimal-25/earthre-sla-monitoring
+- **Live application:** https://earthre-sla-monitoring.web.app
+- **API base URL:** https://earthre-sla-api-scyc46bywq-uc.a.run.app
+- **API health:** https://earthre-sla-api-scyc46bywq-uc.a.run.app/v1/health
+- **Production smoke test:** PASS
+- **Last verified live (UTC):** 2026-09-18T15:39:37.4370855Z
+
+The production smoke test verified upload, persistence, summary, date
+filtering, logs, cursor pagination, service filtering, browser CORS, and
+idempotent re-upload of the supplied monitoring CSV.
+
 <!-- PHASE4_LIVE_END -->
 
 The repository intentionally does not claim a live deployment until the Phase 4 live smoke test has passed. Run `deploy/06-record-live-urls.ps1` after deployment to populate these fields and generate `docs/LIVE_DEPLOYMENT.md`.
@@ -22,27 +28,27 @@ The repository intentionally does not claim a live deployment until the Phase 4 
 
 ```text
 User browser
-    │
-    │ HTTPS
-    ▼
+    â”‚
+    â”‚ HTTPS
+    â–¼
 Firebase Hosting
 React + TypeScript + Vite + Vanilla CSS
-    │
-    │ raw CSV upload / summary / logs
-    ▼
+    â”‚
+    â”‚ raw CSV upload / summary / logs
+    â–¼
 Cloud Run function-style Node.js 22 API
 stateless Functions Framework handler
-    │
-    ├── Phase 1 parser / validation / normalization
-    ├── exact deduplication
-    ├── canonical 15-minute interval reconciliation
-    ├── availability + coverage + downtime + p95
-    │
-    ▼
+    â”‚
+    â”œâ”€â”€ Phase 1 parser / validation / normalization
+    â”œâ”€â”€ exact deduplication
+    â”œâ”€â”€ canonical 15-minute interval reconciliation
+    â”œâ”€â”€ availability + coverage + downtime + p95
+    â”‚
+    â–¼
 Cloud Firestore
 uploads/{uploadId}
-    ├── observations/{observationId}
-    └── dailyStats/{date--serviceId}
+    â”œâ”€â”€ observations/{observationId}
+    â””â”€â”€ dailyStats/{date--serviceId}
 ```
 
 ### Why these pieces
@@ -86,10 +92,10 @@ The canonical denominator is one interval per:
 
 ### Health reconciliation
 
-- HTTP `2xx` and `3xx` → healthy evidence
-- HTTP `4xx` and `5xx` → down evidence
-- valid agents agreeing → one resolved interval
-- valid agents disagreeing → conflicted interval
+- HTTP `2xx` and `3xx` â†’ healthy evidence
+- HTTP `4xx` and `5xx` â†’ down evidence
+- valid agents agreeing â†’ one resolved interval
+- valid agents disagreeing â†’ conflicted interval
 - invalid telemetry does not manufacture success or downtime
 - unknown/conflicted intervals reduce monitoring coverage
 
@@ -172,7 +178,7 @@ Pagination uses opaque query-bound backend cursors. The browser caches already l
 
 ```text
 >= 1024 CSS px    desktop header + four KPIs + operational tables
-480–1023 px       stacked header + balanced 2×2 KPI grid + responsive records
+480â€“1023 px       stacked header + balanced 2Ã—2 KPI grid + responsive records
 <= 560 px         one-column filters/service/log records
 ```
 
@@ -266,7 +272,7 @@ See `docs/TEST_REPORT.md`.
 
 ## Local Firestore/API/frontend
 
-### Terminal 1 — Firestore Emulator
+### Terminal 1 â€” Firestore Emulator
 
 ```powershell
 firebase emulators:start --only firestore --project earthre-sla-local
@@ -279,7 +285,7 @@ Firestore  127.0.0.1:8085
 UI         127.0.0.1:4000
 ```
 
-### Terminal 2 — API
+### Terminal 2 â€” API
 
 ```powershell
 $env:FIRESTORE_EMULATOR_HOST="127.0.0.1:8085"
@@ -299,7 +305,7 @@ Health:
 http://localhost:8080/v1/health
 ```
 
-### Terminal 3 — frontend
+### Terminal 3 â€” frontend
 
 ```powershell
 Copy-Item .\web\.env.example .\web\.env
