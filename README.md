@@ -1,3 +1,4 @@
+<img width="1672" height="941" alt="Bimal=EarthRe SLA Monitoring-Full Stack Architecture" src="https://github.com/user-attachments/assets/2b08d7c4-e345-4f29-af1e-12eb78c04568" />
 # EarthRe SLA Monitoring Dashboard â€” Phase 4 Deployment Package
 
 A correctness-first full-stack implementation of the EarthRe SLA take-home assignment.
