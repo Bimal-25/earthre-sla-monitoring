@@ -10,8 +10,7 @@ The project accepts a monitoring CSV, sends it through a real stateless serverle
 
 - **GitHub repository:** https://github.com/Bimal-25/earthre-sla-monitoring
 - **Live application:** https://earthre-sla-monitoring.web.app
-- **API base URL:** https://earthre-sla-api-scyc46bywq-uc.a.run.app
-- **API health:** https://earthre-sla-api-scyc46bywq-uc.a.run.app/v1/health
+- - **API health:** https://earthre-sla-api-scyc46bywq-uc.a.run.app/v1/health
 - **Production smoke test:** PASS
 - **Last verified live (UTC):** 2026-09-18T15:39:37.4370855Z
 
